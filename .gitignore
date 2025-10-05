@@ -1,0 +1,43 @@
+# =======================================
+# Exercism + Python .gitignore Template
+# =======================================
+
+# Ignore Exercism metadata
+.exercism/
+
+# Ignore Python bytecode and cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore virtual environments
+.env/
+.venv/
+env/
+venv/
+ENV/
+
+# Ignore IDE/editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore OS-generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore build and test artifacts
+build/
+dist/
+*.egg-info/
+.coverage
+htmlcov/
+*.log
+.pytest_cache/
+.tox/
+
+# =======================================
+# End of file
+# =======================================
