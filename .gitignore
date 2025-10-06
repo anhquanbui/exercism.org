@@ -3,7 +3,7 @@
 # =======================================
 
 # Ignore Exercism metadata
-.exercism/
+**/.exercism/
 
 # Ignore Python bytecode and cache
 __pycache__/
