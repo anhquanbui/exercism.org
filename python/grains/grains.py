@@ -4,3 +4,5 @@ def square(number):
 
 def total():
     return sum(square(i) for i in range(1, 65))
+
+print
