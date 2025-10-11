@@ -22,7 +22,7 @@ def value_of_card(card: str) -> int:
         return 1
     return int(card)
 
-def higher_card(card_one: str, card_two: str): -> str | tuple[str,str]:
+def higher_card(card_one: str, card_two: str) -> str | tuple[str,str]:
     """Determine which card has a higher value in the hand.
 
     :param card_one, card_two: str - cards dealt in hand.  See below for values.
@@ -33,11 +33,15 @@ def higher_card(card_one: str, card_two: str): -> str | tuple[str,str]:
     3.  '2' - '10' = numerical value.
     """
     v1 = value_of_card(card_one)
-    v2 = 
-    
+    v2 = value_of_card(card_two)
+    if v1 > v2:
+        return card_one
+    if v1 < v2:
+        return card_two
+    return(card_one, card_two)
 
 
-def value_of_ace(card_one, card_two):
+def value_of_ace(card_one: str, card_two: str) -> int:
     """Calculate the most advantageous value for the ace card.
 
     :param card_one, card_two: str - card dealt. See below for values.
@@ -48,10 +52,13 @@ def value_of_ace(card_one, card_two):
     3.  '2' - '10' = numerical value.
     """
 
-    pass
+    if card_one == "A" or card_two == "A":
+        return 1
+    total = value_of_card(card_one) + value_of_card(card_two)
+    return 11 if total <= 10 else 1
 
 
-def is_blackjack(card_one, card_two):
+def is_blackjack(card_one: str, card_two:str) -> bool:
     """Determine if the hand is a 'natural' or 'blackjack'.
 
     :param card_one, card_two: str - card dealt. See below for values.
@@ -62,24 +69,27 @@ def is_blackjack(card_one, card_two):
     3.  '2' - '10' = numerical value.
     """
 
-    pass
+    ten_value = ("10", "J", "Q", "K")
+    cards = (card_one, card_two)
+    return ("A" in cards) and (card_one in ten_value or card_two in ten_value)
 
 
-def can_split_pairs(card_one, card_two):
+def can_split_pairs(card_one: str, card_two: str) -> bool:
     """Determine if a player can split their hand into two hands.
 
     :param card_one, card_two: str - cards dealt.
     :return: bool - can the hand be split into two pairs? (i.e. cards are of the same value).
     """
 
-    pass
+    value_of_card(card_one) == value_of_card(card_two)
 
 
-def can_double_down(card_one, card_two):
+def can_double_down(card_one:str, card_two:str) -> bool:
     """Determine if a blackjack player can place a double down bet.
 
     :param card_one, card_two: str - first and second cards in hand.
     :return: bool - can the hand can be doubled down? (i.e. totals 9, 10 or 11 points).
     """
 
-    pass
+    total = value_of_card(card_one) + value_of_card(card_two)
+    return total in (9, 10, 11)
