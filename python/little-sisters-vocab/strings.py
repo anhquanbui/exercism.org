@@ -40,7 +40,7 @@ def remove_suffix_ness(word:str) -> str:
 
     suffix = word[:-4]
     if suffix.endswith("i"):
-        suffix = suffix[-1] + "y"
+        suffix = suffix[:-1] + "y"
     return suffix
 
 
